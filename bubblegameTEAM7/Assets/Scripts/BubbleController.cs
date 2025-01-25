@@ -4,6 +4,7 @@ using UnityEngine;
 public class BubbleController : MonoBehaviour
 {
     public Rigidbody2D theRB;
+    public CircleCollider2D bubbleCollider;
     public bool canMove;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float accelerationSpeed = 1f;
@@ -15,6 +16,13 @@ public class BubbleController : MonoBehaviour
     public float burstTime;
     private float timeToBurst;
     private float currentVelocityX = 0f;
+    public LayerMask whatIsIce;
+    private bool isOnIce;
+    private bool isIced;
+    [SerializeField] private float iceTime;
+    private float timeUntilNoLongerIce;
+    [SerializeField] private float iceFriction = 0.5f;
+    [SerializeField] private float normalDrag = 1f;
 
     public Animator anim;
     // Start is called before the first frame update
@@ -23,6 +31,8 @@ public class BubbleController : MonoBehaviour
         canMove = true;
         isOnGround = false;
         theRB = GetComponent<Rigidbody2D>();
+        bubbleCollider = GetComponent<CircleCollider2D>();
+        timeUntilNoLongerIce = iceTime;
     }
 
     // Update is called once per frame
@@ -52,9 +62,11 @@ public class BubbleController : MonoBehaviour
 
         //check if on ground
         isOnGround = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsGround);
+        //check if on ice
+        isOnIce = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsIce);
 
-        //if on ground, start countdown
-        if (isOnGround)
+        //if on ground and not iced, start countdown. Does not run if player is iced.
+        if (isOnGround && !isIced)
         {
             anim.SetBool("isOnGround", true);
             timeToBurst -= Time.deltaTime;
@@ -71,6 +83,31 @@ public class BubbleController : MonoBehaviour
             anim.SetBool("isOnGround", false);
         }
 
+        //if on ice, turn to ice for time period
+        if (isOnIce)
+        {
+            isIced = true;
+            anim.SetBool("isIced", true);
+        }
+
+        if (isIced) { 
+            timeUntilNoLongerIce -= Time.deltaTime;
+
+            theRB.gravityScale = 2f;
+            theRB.drag = iceFriction;
+
+            theRB.velocity = new Vector2(theRB.velocity.x, theRB.velocity.y);
+
+           if (timeUntilNoLongerIce <= 0)
+            {
+                isIced = false;
+                anim.SetBool("isIced", false);
+                timeUntilNoLongerIce = iceTime;
+
+                theRB.gravityScale = 0.25f;
+                theRB.drag = normalDrag;
+            }
+        }
     }
 
 }
