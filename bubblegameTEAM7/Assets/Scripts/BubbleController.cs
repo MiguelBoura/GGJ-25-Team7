@@ -33,6 +33,9 @@ public class BubbleController : MonoBehaviour
     private float resetPressTimer = 1f;
     private float pressTimer = 0f;
 
+    private bool hasTouchedDangerObject;
+    [SerializeField] private LayerMask whatIsDanger;
+
     public Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -45,6 +48,7 @@ public class BubbleController : MonoBehaviour
         soapCollider = GetComponent<BoxCollider2D>();
         timeUntilNoLongerIce = iceTime;
         bubblePopped = false;
+        hasTouchedDangerObject = false;
     }
 
     // Update is called once per frame
@@ -77,6 +81,7 @@ public class BubbleController : MonoBehaviour
         //check if on ice
         isOnIce = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsIce);
 
+        //check if on soap
         isOnSoap = Physics2D.OverlapCircle(groundPoint.position, .1f, whatIsSoap);
 
         //if on ground and not iced, start countdown. Does not run if player is iced.
@@ -134,7 +139,6 @@ public class BubbleController : MonoBehaviour
             {
                 jumpPressed++;
                 pressTimer = resetPressTimer;
-                Debug.Log($"jymp presses: {jumpPressed}/{requiredButtonPresses}");
 
                 if (jumpPressed >= requiredButtonPresses)
                 {
@@ -157,10 +161,14 @@ public class BubbleController : MonoBehaviour
         }
     }
 
+    public void killBubble()
+    {
+        StartCoroutine(BalloonPop());
+    }
+
     private void FreeBubble()
     {
         theRB.velocity = new Vector2(theRB.velocity.x, puffForce);
-        Debug.Log("Bubble freed!");
         isOnSoap = false;
         canMove = true;
         jumpPressed = 0;
