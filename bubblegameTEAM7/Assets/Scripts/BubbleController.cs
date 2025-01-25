@@ -161,9 +161,12 @@ public class BubbleController : MonoBehaviour
         }
     }
 
-    public void killBubble()
+    public void KillBubble()
     {
-        StartCoroutine(BalloonPop());
+        if (!isIced)
+        {
+            StartCoroutine(BalloonPop());
+        }
     }
 
     private void FreeBubble()

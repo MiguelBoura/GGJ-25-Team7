@@ -10,7 +10,7 @@ public class DangerController : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            bubble.killBubble();
+            bubble.KillBubble();
         }
     }
 }
