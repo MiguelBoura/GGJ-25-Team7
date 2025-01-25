@@ -25,14 +25,13 @@ public class Flower : MonoBehaviour
     private bool isWarning;
     private bool isDanger;
 
-    private FlowerState currentState;
+    private FlowerState currentState = FlowerState.Safe;
     private float stateTimer;
 
     public Animator anim;
 
     private void Start()
     {
-        isSafe = true;
         StartCoroutine(flowerAI());
     }
     private IEnumerator flowerAI()

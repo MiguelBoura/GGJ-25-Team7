@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 908270795654706234}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7086209, w: 0.7055894}
-  m_LocalPosition: {x: 2.18, y: -0.0523, z: 0}
-  m_LocalScale: {x: 0.28825325, y: 1.3956813, z: 1}
+  m_LocalPosition: {x: 2.31, y: -0.31, z: 0}
+  m_LocalScale: {x: 0.24410048, y: 0.43260843, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6809372611063742652}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleController: {fileID: 0}
-  windForce: 10
+  windForce: 5
   isBlowing: 0
   fanForward: {fileID: 6809372611063742652}
 --- !u!61 &5521286181708054753
@@ -396,7 +396,7 @@ Transform:
   m_GameObject: {fileID: 6686333258104590150}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7086209, w: 0.7055894}
-  m_LocalPosition: {x: -0.06, y: 0.49000007, z: 0}
+  m_LocalPosition: {x: -0.06, y: 0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
