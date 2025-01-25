@@ -5,6 +5,7 @@ public class BubbleController : MonoBehaviour
 {
     public Rigidbody2D theRB;
     public CircleCollider2D bubbleCollider;
+    public BoxCollider2D soapCollider;
     public bool canMove;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float accelerationSpeed = 1f;
@@ -19,10 +20,18 @@ public class BubbleController : MonoBehaviour
     public LayerMask whatIsIce;
     private bool isOnIce;
     private bool isIced;
+    [SerializeField] private LayerMask whatIsSoap;
+    private bool isOnSoap;
+    private bool bubblePopped;
     [SerializeField] private float iceTime;
     private float timeUntilNoLongerIce;
     [SerializeField] private float iceFriction = 0.5f;
     [SerializeField] private float normalDrag = 1f;
+    [SerializeField] DishSoapController soapController;
+    [SerializeField] private int requiredButtonPresses = 5;
+    private int jumpPressed = 0;
+    private float resetPressTimer = 1f;
+    private float pressTimer = 0f;
 
     public Animator anim;
     // Start is called before the first frame update
@@ -30,9 +39,12 @@ public class BubbleController : MonoBehaviour
     {
         canMove = true;
         isOnGround = false;
+        isOnSoap = false;
         theRB = GetComponent<Rigidbody2D>();
         bubbleCollider = GetComponent<CircleCollider2D>();
+        soapCollider = GetComponent<BoxCollider2D>();
         timeUntilNoLongerIce = iceTime;
+        bubblePopped = false;
     }
 
     // Update is called once per frame
@@ -65,6 +77,8 @@ public class BubbleController : MonoBehaviour
         //check if on ice
         isOnIce = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsIce);
 
+        isOnSoap = Physics2D.OverlapCircle(groundPoint.position, .1f, whatIsSoap);
+
         //if on ground and not iced, start countdown. Does not run if player is iced.
         if (isOnGround && !isIced)
         {
@@ -73,7 +87,7 @@ public class BubbleController : MonoBehaviour
 
             if (timeToBurst < 0)
             {
-                Destroy(gameObject);
+                StartCoroutine(BalloonPop());
             }
         }
 
@@ -108,6 +122,59 @@ public class BubbleController : MonoBehaviour
                 theRB.drag = normalDrag;
             }
         }
+
+        if(isOnSoap && !isIced)
+        {
+            isOnGround = false;
+            canMove = false;
+            theRB.velocity = new Vector2(0, 0);
+
+            //bubble stuck
+            if (Input.GetButtonDown("Jump"))
+            {
+                jumpPressed++;
+                pressTimer = resetPressTimer;
+                Debug.Log($"jymp presses: {jumpPressed}/{requiredButtonPresses}");
+
+                if (jumpPressed >= requiredButtonPresses)
+                {
+                    FreeBubble();
+                }
+            }
+            if (pressTimer > 0)
+            {
+                pressTimer -= Time.deltaTime;
+            }
+            else
+            {
+                jumpPressed = 0;
+            }
+
+        }
+        else
+        {
+            canMove = true;
+        }
     }
 
+    private void FreeBubble()
+    {
+        theRB.velocity = new Vector2(theRB.velocity.x, puffForce);
+        Debug.Log("Bubble freed!");
+        isOnSoap = false;
+        canMove = true;
+        jumpPressed = 0;
+
+        if (soapController != null)
+        {
+            soapController.DisableSoapSurface();
+        }
+    }
+    IEnumerator BalloonPop()
+    {
+        bubblePopped = true;
+        anim.SetBool("isPopped", true);
+        yield return new WaitForSeconds(0.75f);
+        Destroy(gameObject);
+    }
 }
