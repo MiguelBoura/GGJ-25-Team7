@@ -637,6 +637,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1095262973502683719, guid: db6f7ad896a1b7b48ac4e96e1c725639, type: 3}
+      propertyPath: puffForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095262973502683719, guid: db6f7ad896a1b7b48ac4e96e1c725639, type: 3}
       propertyPath: soapController
       value: 
       objectReference: {fileID: 569678182}
