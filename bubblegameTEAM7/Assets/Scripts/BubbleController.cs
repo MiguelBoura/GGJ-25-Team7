@@ -13,6 +13,8 @@ public class BubbleController : MonoBehaviour
     [SerializeField] private float decelerationSpeed = 1f;
     public float puffForce;
     public Transform groundPoint;
+    public Transform leftPoint;
+    public Transform rightPoint;
     private bool isOnGround;
     public LayerMask whatIsGround;
     public float burstTime;
@@ -20,6 +22,8 @@ public class BubbleController : MonoBehaviour
     private float currentVelocityX = 0f;
     public LayerMask whatIsIce;
     private bool isOnIce;
+    private bool isOnIceLeft;
+    private bool isOnIceRight;
     private bool isIced;
     [SerializeField] private LayerMask whatIsSoap;
     private bool isOnSoap;
@@ -85,6 +89,8 @@ public class BubbleController : MonoBehaviour
         isOnGround = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsGround);
         //check if on ice
         isOnIce = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsIce);
+        isOnIceLeft = Physics2D.OverlapCircle(leftPoint.position, .2f, whatIsIce);
+        isOnIceRight = Physics2D.OverlapCircle(rightPoint.position, .2f, whatIsIce);
 
         //check if on soap
         isOnSoap = Physics2D.OverlapCircle(groundPoint.position, .1f, whatIsSoap);
@@ -111,7 +117,7 @@ public class BubbleController : MonoBehaviour
         }
 
         //if on ice, turn to ice for time period
-        if (isOnIce)
+        if (isOnIce || isOnIceLeft || isOnIceRight)
         {
             isIced = true;
             anim.SetBool("isIced", true);
