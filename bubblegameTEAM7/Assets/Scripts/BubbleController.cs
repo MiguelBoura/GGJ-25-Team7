@@ -32,6 +32,9 @@ public class BubbleController : MonoBehaviour
     private int jumpPressed = 0;
     private float resetPressTimer = 1f;
     private float pressTimer = 0f;
+    private bool isOnWin;
+    [SerializeField] private LayerMask isWinObject;
+    private bool isWinner;
 
     private bool hasTouchedDangerObject;
     [SerializeField] private LayerMask whatIsDanger;
@@ -43,6 +46,7 @@ public class BubbleController : MonoBehaviour
         canMove = true;
         isOnGround = false;
         isOnSoap = false;
+        isWinner = false;
         theRB = GetComponent<Rigidbody2D>();
         bubbleCollider = GetComponent<CircleCollider2D>();
         soapCollider = GetComponent<BoxCollider2D>();
@@ -83,6 +87,9 @@ public class BubbleController : MonoBehaviour
 
         //check if on soap
         isOnSoap = Physics2D.OverlapCircle(groundPoint.position, .1f, whatIsSoap);
+
+        //check if winner
+        isOnWin = Physics2D.OverlapCircle(groundPoint.position, 1f, isWinObject);
 
         //if on ground and not iced, start countdown. Does not run if player is iced.
         if (isOnGround && !isIced)
@@ -159,6 +166,11 @@ public class BubbleController : MonoBehaviour
         {
             canMove = true;
         }
+
+        if (isOnWin)
+        {
+            StartCoroutine(WinLevel());
+        }
     }
 
     public void KillBubble()
@@ -187,5 +199,14 @@ public class BubbleController : MonoBehaviour
         anim.SetBool("isPopped", true);
         yield return new WaitForSeconds(0.75f);
         Destroy(gameObject);
+    }
+
+    private IEnumerator WinLevel()
+    {
+        isWinner = true;
+        if (isWinner) { 
+            anim.SetBool("isWin", true);
+            yield return new WaitForSeconds(0.75f);
+            }
     }
 }
