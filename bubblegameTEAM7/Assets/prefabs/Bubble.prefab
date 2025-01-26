@@ -185,8 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf20b5cb5deb940ba73a2f8521d50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
-  bubble: {fileID: 0}
+  sceneName: TitleScreen
+  bubble: {fileID: 1095262973502683719}
 --- !u!1 &4073110047557310589
 GameObject:
   m_ObjectHideFlags: 0
