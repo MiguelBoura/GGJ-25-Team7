@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3367752785906562138}
   - component: {fileID: 6268784902461644855}
   - component: {fileID: 1095262973502683719}
-  - component: {fileID: 2768450682490507466}
+  - component: {fileID: 5640648774559415410}
   m_Layer: 8
   m_Name: Bubble
   m_TagString: Player
@@ -170,7 +170,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   anim: {fileID: 5889273718404288305}
---- !u!114 &2768450682490507466
+--- !u!114 &5640648774559415410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
