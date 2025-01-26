@@ -13,6 +13,8 @@ public class BubbleController : MonoBehaviour
     [SerializeField] private float decelerationSpeed = 1f;
     public float puffForce;
     public Transform groundPoint;
+    public Transform leftPoint;
+    public Transform rightPoint;
     private bool isOnGround;
     public LayerMask whatIsGround;
     public float burstTime;
@@ -85,6 +87,8 @@ public class BubbleController : MonoBehaviour
         isOnGround = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsGround);
         //check if on ice
         isOnIce = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsIce);
+        isOnIce = Physics2D.OverlapCircle(leftPoint.position, .2f, whatIsIce);
+        isOnIce = Physics2D.OverlapCircle(rightPoint.position, .2f, whatIsIce);
 
         //check if on soap
         isOnSoap = Physics2D.OverlapCircle(groundPoint.position, .1f, whatIsSoap);
