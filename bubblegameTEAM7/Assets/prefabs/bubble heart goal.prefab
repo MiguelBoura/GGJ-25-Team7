@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4105591348510919366}
   - component: {fileID: 6438074558039253045}
   - component: {fileID: 5371298271278740476}
+  - component: {fileID: 6201649979951175556}
   m_Layer: 14
   m_Name: bubble heart goal
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8f76494df6c82854d808e318f59559d6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8132075, b: 0.92560077, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,3 +131,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.126866, y: 11.851976}
   m_EdgeRadius: 0
+--- !u!114 &6201649979951175556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7309211216046296352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9810f24487f620746b5e9deef5ffaf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: RealLevel1
+  bubble: {fileID: 0}
