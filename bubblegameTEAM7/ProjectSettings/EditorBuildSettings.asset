@@ -7,16 +7,13 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
-    guid: 5acd0b4958aa2f7468cc7f933dbc9bfc
+    guid: c8394509a4a59c441924ebddab9f9a93
   - enabled: 1
     path: Assets/Scenes/Controls.unity
     guid: 9f180509c764cbd449d942f31847bf10
   - enabled: 1
     path: Assets/Scenes/Credits.unity
-    guid: b140d722a5f778247a57eaddfdb5aa5b
-  - enabled: 1
-    path: Assets/Scenes/Official Levels/TutorialLevel.unity
-    guid: b942154fa81bfdb438f9c35bf884cd02
+    guid: d418e78248fc99d41bfd664a2fb70d97
   - enabled: 1
     path: Assets/Scenes/Official Levels/RealLevel1.unity
     guid: 070f1df44ef528a4abeaa9527a56c975
@@ -31,8 +28,8 @@ EditorBuildSettings:
     guid: 449f51183e556124e9dd0b85b80b59c8
   - enabled: 1
     path: Assets/Scenes/GameEnd.unity
-    guid: 21377ebceb3911249973d27c52bbee26
+    guid: c6de44efba539a846bde0a89f8b5876f
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
-    guid: 028938f379a1c784d884d643baf299b1
+    guid: 88becae818cca174f87524daa4b047c6
   m_configObjects: {}
