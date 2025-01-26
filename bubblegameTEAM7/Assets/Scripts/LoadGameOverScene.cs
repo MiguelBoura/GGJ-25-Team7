@@ -3,20 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class LoadGameOverScene : MonoBehaviour
 {
-    [Header("Game Over Scene")]
-    [Tooltip("Name of the Game Over scene to load.")]
-    public string gameOverSceneName = "GameOver";
+    [Header("Scene")]
+    [Tooltip("Name of the scene to load.")]
+    public string sceneName;
+    public BubbleController bubble;
 
     private void OnDestroy()
     {
         // Load the Game Over scene when the player is destroyed
-        if (!string.IsNullOrEmpty(gameOverSceneName))
+        if (!string.IsNullOrEmpty(sceneName))
         {
-            SceneManager.LoadScene(gameOverSceneName);
+            SceneManager.LoadScene(sceneName);
         }
         else
         {
-            Debug.LogError("Game Over scene name is not set!");
+            Debug.LogError("Scene name is not set!");
         }
     }
 }
