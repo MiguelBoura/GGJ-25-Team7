@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3367752785906562138}
   - component: {fileID: 6268784902461644855}
   - component: {fileID: 1095262973502683719}
+  - component: {fileID: 2768450682490507466}
   m_Layer: 8
   m_Name: Bubble
   m_TagString: Player
@@ -165,7 +166,23 @@ MonoBehaviour:
   normalDrag: 1
   soapController: {fileID: 0}
   requiredButtonPresses: 5
+  whatIsDanger:
+    serializedVersion: 2
+    m_Bits: 0
   anim: {fileID: 5889273718404288305}
+--- !u!114 &2768450682490507466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3718140024608247554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8faf20b5cb5deb940ba73a2f8521d50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverSceneName: GameOver
 --- !u!1 &4073110047557310589
 GameObject:
   m_ObjectHideFlags: 0
