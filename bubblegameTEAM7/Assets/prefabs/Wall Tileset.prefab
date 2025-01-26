@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 56651994641297885}
   - component: {fileID: 3727975016480657667}
-  - component: {fileID: 6267439395384991351}
   - component: {fileID: 3257962950754604262}
   m_Layer: 12
   m_Name: Wall Tileset
@@ -148,10 +147,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.22041774, y: 0.59015155}
+  m_Offset: {x: -0.23641622, y: 0.09647626}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -162,52 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.981215, y: 0.97155905}
-  m_EdgeRadius: 0
---- !u!61 &6267439395384991351
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6282687234003422471}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.2844106, y: -0.35195804}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.9527743, y: 0.9075668}
+  m_Size: {x: 2.0401618, y: 1.9589096}
   m_EdgeRadius: 0
 --- !u!114 &3257962950754604262
 MonoBehaviour:
@@ -221,4 +175,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4f7059551005345a674099c62d5198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubble: {fileID: 0}
+  bubble: {fileID: 1095262973502683719, guid: db6f7ad896a1b7b48ac4e96e1c725639, type: 3}
