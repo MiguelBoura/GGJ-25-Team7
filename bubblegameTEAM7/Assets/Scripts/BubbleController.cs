@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class BubbleController : MonoBehaviour
 {
     public Rigidbody2D theRB;
@@ -169,7 +170,8 @@ public class BubbleController : MonoBehaviour
 
         if (isOnWin)
         {
-            StartCoroutine(WinLevel());
+            isWinner = true;
+            LevelWon();
         }
     }
 
@@ -178,6 +180,14 @@ public class BubbleController : MonoBehaviour
         if (!isIced)
         {
             StartCoroutine(BalloonPop());
+        }
+    }
+
+    public void LevelWon()
+    {
+        if (isWinner)
+        {
+            StartCoroutine(WinLevel());
         }
     }
 
@@ -199,14 +209,14 @@ public class BubbleController : MonoBehaviour
         anim.SetBool("isPopped", true);
         yield return new WaitForSeconds(0.75f);
         Destroy(gameObject);
+        SceneManager.LoadScene("GameOver");
     }
 
-    private IEnumerator WinLevel()
+    IEnumerator WinLevel()
     {
-        isWinner = true;
         if (isWinner) { 
             anim.SetBool("isWin", true);
             yield return new WaitForSeconds(0.75f);
-            }
+        }
     }
 }
