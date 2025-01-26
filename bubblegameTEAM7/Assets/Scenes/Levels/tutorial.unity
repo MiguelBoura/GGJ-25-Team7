@@ -264,7 +264,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7309211216046296352, guid: 0e45001f02c88c94da8efa1c29d16f0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1473797105}
   m_SourcePrefab: {fileID: 100100000, guid: 0e45001f02c88c94da8efa1c29d16f0c, type: 3}
 --- !u!1001 &120890294
 PrefabInstance:
@@ -2541,7 +2544,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1318980928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc78103280169a46ba71f8bde8a0ddb, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b2abb7417b1a714b9f3ee7b3da93190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1318980931
@@ -2584,13 +2587,13 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1318980932}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 102900000, guid: c8394509a4a59c441924ebddab9f9a93, type: 3}
         m_TargetAssemblyTypeName: QuitGameButton, Assembly-CSharp
-        m_MethodName: QuitApplication
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2638,6 +2641,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318980928}
   m_CullTransparentMesh: 1
+--- !u!1 &1473797101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7309211216046296352, guid: 0e45001f02c88c94da8efa1c29d16f0c, type: 3}
+  m_PrefabInstance: {fileID: 120018946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1473797105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473797101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9810f24487f620746b5e9deef5ffaf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: RealLevel1
+  bubble: {fileID: 902573264}
 --- !u!1 &1590285583
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,10 +3340,6 @@ PrefabInstance:
       propertyPath: soapController
       value: 
       objectReference: {fileID: 128848720}
-    - target: {fileID: 1095262973502683719, guid: db6f7ad896a1b7b48ac4e96e1c725639, type: 3}
-      propertyPath: whatIsDanger.m_Bits
-      value: 4096
-      objectReference: {fileID: 0}
     - target: {fileID: 3718140024608247554, guid: db6f7ad896a1b7b48ac4e96e1c725639, type: 3}
       propertyPath: m_Name
       value: Bubble
