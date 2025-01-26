@@ -3760,7 +3760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8862024737009700680, guid: e5e247e825a04b7449112ac35c2689d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.69
+      value: 10.58
       objectReference: {fileID: 0}
     - target: {fileID: 8862024737009700680, guid: e5e247e825a04b7449112ac35c2689d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3911,7 +3911,7 @@ PrefabInstance:
     - target: {fileID: 1651877394160334069, guid: b4991c6de239f499aac454429b038ecc, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: de42af978453b094eaff30c7a02af9c2, type: 3}
+      objectReference: {fileID: 8300000, guid: 5a7ff1de12b9e476e827cf6405607b19, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
