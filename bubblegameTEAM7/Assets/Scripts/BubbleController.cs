@@ -215,7 +215,8 @@ public class BubbleController : MonoBehaviour
         anim.SetBool("isPopped", true);
         yield return new WaitForSeconds(0.75f);
         Destroy(gameObject);
-        SceneManager.LoadScene("GameOver");
+        //SceneManager.LoadScene("GameOver");
+        RespawnController.instance.Respawn();
     }
 
     IEnumerator WinLevel()
